@@ -1,12 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
+import { Task } from "../model/task";
 
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  dueDate: string;
-  priority: "High" | "Medium" | "Low";
-}
+
 
 interface TaskContextType {
   tasks: Task[];
