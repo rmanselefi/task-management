@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useTaskContext } from "../../contexts/TaskContext";
 import { Task } from "../../model/task";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const TaskForm: React.FC = () => {
-    const navigate = useNavigate()
-    const {addTask} = useTaskContext()
+  const navigate = useNavigate();
+  const { addTask } = useTaskContext();
   const [formData, setFormData] = useState<Task>({
     id: 0,
     title: "",
@@ -25,8 +25,8 @@ const TaskForm: React.FC = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     // Handle form submission here, e.g., send data to a server
-    addTask(formData)
-    navigate('/')
+    addTask(formData);
+    navigate("/");
   };
 
   return (
@@ -44,6 +44,7 @@ const TaskForm: React.FC = () => {
             className="mt-1 p-2 w-full border rounded-md"
             value={formData.title}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-4">
@@ -57,6 +58,7 @@ const TaskForm: React.FC = () => {
             className="mt-1 p-2 w-full border rounded-md"
             value={formData.priority}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-4">
@@ -70,6 +72,7 @@ const TaskForm: React.FC = () => {
             className="mt-1 p-2 w-full border rounded-md"
             value={formData.dueDate}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-4">
@@ -83,6 +86,7 @@ const TaskForm: React.FC = () => {
             rows={4}
             value={formData.description}
             onChange={handleChange}
+            required
           />
         </div>
         <button
